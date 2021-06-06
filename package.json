@@ -1,0 +1,24 @@
+{
+  "name": "dev.log",
+  "version": "1.0.0",
+  "description": "Node.js blog project",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon app"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SOULIKK/_DEV.LOG.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SOULIKK/_DEV.LOG/issues"
+  },
+  "homepage": "https://github.com/SOULIKK/_DEV.LOG#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemon": "^2.0.7",
+    "nunjucks": "^3.2.3"
+  }
+}
