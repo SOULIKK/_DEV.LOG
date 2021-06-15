@@ -1,3 +1,8 @@
 # _DEV.LOG
 
-Node.js blog project
+### Node.js
+### MySQL
+### nunjucks
+### bootstrap
+### passport.js
+
