@@ -1,0 +1,16 @@
+{% extends 'layout.html' %}
+
+{% block content %}
+<div class="col-8 mx-auto vh-100 py-5 px-3" style="background: #f3f3f3;">
+  <h4 class="font-weight-bold text-center my-4">회원가입</h4>
+  <form action="/auth/join" method="post">
+    <label for="userId">ID</label>
+    <input class="form-control my-2" type="text" id="userId" name="userId" autocomplete="off">
+    <label for="nickName">닉네임</label>
+    <input class="form-control my-2" type="text" id="nickName" name="nickName" autocomplete="off">
+    <label for="password">비밀번호</label>
+    <input class="form-control my-2" type="password" id="password" name="password">
+    <button type="submit" class="btn btn-primary w-100 mt-2">회원가입</button>
+  </form>
+</div>
+{% endblock %}
