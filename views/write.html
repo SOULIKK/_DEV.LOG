@@ -1,0 +1,76 @@
+{% extends 'layout.html' %}
+
+{% block script %}
+<script>
+  function goLink(_link) {
+    if (_link == 'home') {
+      location.href = "/";
+    } else if (_link == 'content') {
+      location.href = '/content';
+    }
+  }
+
+  // editor
+  $(document).ready(function () {
+    $('#summernote').summernote({
+      height: 400
+    });
+  });
+
+
+  if (document.getElementById('thumbnail')) {
+    console.log('미리보기');
+    document.getElementById('thumbnail').addEventListener('change', function (e) {
+      const formData = new FormData();
+      console.log(this, this.files);
+      formData.append('img', this.files[0]);
+      axios.post('/post/img', formData)
+        .then((res) => {
+          document.getElementById('img_url').value = res.data.url;
+          document.getElementById('img_preview').src = res.data.url;
+          document.getElementById('img_preview').style.display = 'inline';
+        })
+        .catch((err) => {
+          console.error(err);
+        });
+    });
+  }
+
+  function template_test() {
+    alert('ddd');
+  }
+</script>
+{% endblock %}
+
+{% block content %}
+<div class="content-wrapper">
+  <div class="content w-75 mx-auto bg-white p-4 overflow-auto">
+    <form action="/article" method="POST">
+      <div>
+        <label for="title">제목</label>
+        <input class="form-control" type="text" id="title" name="title">
+      </div>
+      <br>
+      <label for="summernote">내용</label>
+      <!-- <div id="summernote"></div> -->
+      <div class="my-2">
+        <textarea class="form-control" name="content" id="content" cols="30" rows="10"></textarea>
+      </div>
+      <div>
+        <label for="thumbnail">썸네일 이미지</label>
+        <input class="form-control" id="thumbnail" type="file" accept="image/*">
+        <div class="img_preview">
+          <img id="img_preview" src="" class="d-none" width="250" alt="미리보기">
+          <input id="img_url" type="hidden" name="url">
+        </div>
+      </div>
+      <br>
+      <div class="d-flex py-2 justify-content-between">
+        <button type="button" class="btn btn-outline-dark" onclick="template_test()">TEST</button>
+        <button type="button" class="btn btn-secondary" onclick="goBack();">뒤로가기</button>
+        <button type="submit" class="btn btn-success">저장</button>
+      </div>
+    </form>
+  </div>
+</div>
+{% endblock %}
