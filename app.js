@@ -39,6 +39,7 @@ app.use('/img', express.static(path.join(__dirname, 'uploads')));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
+
 app.use(cookieParser(process.env.COOKIE_SECRET));
 app.use(session({
   resave: false,
@@ -57,6 +58,8 @@ app.use('/', pageRouter);
 app.use('/auth', authRouter);
 app.use('/article', articleRouter);
 app.use('/user', userRouter);
+
+
 
 app.use((req, res, next) => {
   const error = new Error(`${req.method} ${req.url} 라우터가 존재하지 않음`);
