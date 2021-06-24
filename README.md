@@ -1,8 +1,10 @@
 # _DEV.LOG
 
-### Node.js
-### MySQL
-### nunjucks
-### bootstrap
-### passport.js
+## SKILL
+
+ - Node.js
+ - MySQL
+ - nunjucks
+
+
 
